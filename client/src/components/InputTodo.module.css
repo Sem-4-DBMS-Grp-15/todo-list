@@ -1,0 +1,58 @@
+.cardform {
+  padding: 2rem 1rem 0;
+}
+
+.input {
+    width: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  padding-top: 1.5rem;
+}
+
+.inputlabel {
+    align-self: center;
+  background-color: #6658d3;
+  width: fit-content;
+  color: white;
+  top: 1.5rem;
+  transition: 0.25s ease;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+.inputfield {
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+  font: inherit;
+  font-size: 1.125rem;
+  padding: 0.25rem 0;
+  margin: 0.5rem 0.2rem;
+  width: 75%;
+}
+
+.inputfield::placeholder {
+  color: rgba(0, 0, 0, 0.2);
+}
+
+.actionbutton {
+  font: inherit;
+  font-size: 1.25rem;
+  padding: 0.5em 1em;
+  width: 20%;
+  font-weight: 500;
+  background-color: #6658d3;
+  border-radius: 6px;
+  color: #fff;
+  border: 0;
+}
+
+.row{
+    padding: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
