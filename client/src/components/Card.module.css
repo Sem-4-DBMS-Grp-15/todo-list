@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.5rem 0.5rem 0 0.5rem;
+  background-color: white;
+  width: 100%;
+  border-radius: 6px;
+}
+
+.cardtext {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #6658d3;
+  padding: 1rem;
+  width: 75%;
+}
+.actionbutton {
+  font: inherit;
+  font-size: 1.25rem;
+  padding: 0.5em;
+  margin: 0.5rem 0;
+  width: 10%;
+  max-width: 10%;
+  font-weight: 500;
+  background-color: #6658d3;
+  border-radius: 6px;
+  color: #fff;
+  border: 0;
+  margin-right: 2.5%;
+}
+
+.actionbutton.delete {
+  background-color: red;
+}
+
+.text {
+  display: none;
+  border: 0;
+  z-index: 1;
+  background-color: transparent;
+  border-bottom: 2px solid #eee;
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 1rem;
+  width: 75%;
+}
+
+.text.edit{
+  display: block;
+}
+
+.cardtext.edit{
+  display: none;
+}

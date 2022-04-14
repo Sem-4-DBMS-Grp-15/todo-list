@@ -1,22 +1,15 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment } from "react";
+import styles from "./ListTodo.module.css";
+import Card from "./Card";
 
-const ListTodo = () => {
-  const [todos, setTodos] = useState([]);
-  const getTodos = async (e) => {
-    const response = await fetch("http://localhost:5000/todos");
-    const todoArray = await response.json();
-    setTodos(todoArray);
-  };
-  useEffect(() => {
-    getTodos();
-  }, []);
+const ListTodo = ({todos,getTodos, setTodos}) => {
   return (
     <Fragment>
-      <ul>
+      <div className={styles.cardholder}>
         {todos.map((a) => (
-          <li>{a.description}</li>
+          <Card a={a} key={a.id} getTodos={getTodos} setTodos={setTodos} />
         ))}
-      </ul>
+      </div>
     </Fragment>
   );
 };

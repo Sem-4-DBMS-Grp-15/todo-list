@@ -1,0 +1,17 @@
+
+.cardholder {
+  align-self: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: wheat;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 0 2.5%;
+  width: 95%;
+  border-radius: 9px;
+  padding-bottom: 0.5rem;
+}
+
+

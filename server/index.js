@@ -69,6 +69,7 @@ app.delete("/todos/:id", async (req, res) => {
       "DELETE FROM todo WHERE id=$1 RETURNING *",
       [id]
     );
+    res.json(deleteTodo.rows[0]);
   } catch (err) {
     console.error(err.message);
   }
