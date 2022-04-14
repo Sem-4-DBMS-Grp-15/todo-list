@@ -6,6 +6,7 @@
   font: inherit;
   font-family: "Poppins", sans-serif;
   max-width: 100vw;
+  scrollbar-color: transparent transparent;
 }
 
 body {
@@ -24,4 +25,19 @@ body {
 input {
   appearance: none;
   border-radius: 0;
+}
+
+::-webkit-scrollbar-track {
+  border: 5px solid white;
+  background-color: #b2bec3;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  background-color: #dfe6e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6658d3;
+  border-radius: 5px;
 }

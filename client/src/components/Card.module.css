@@ -7,14 +7,20 @@
   border-radius: 6px;
 }
 
+.card:hover{
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.133)
+}
+
 .cardtext {
   font-size: 1.25rem;
   font-weight: 600;
   color: #6658d3;
   padding: 1rem;
   width: 75%;
+  cursor:grabbing;
 }
 .actionbutton {
+  cursor:pointer;
   font: inherit;
   font-size: 1.25rem;
   padding: 0.5em;

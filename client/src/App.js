@@ -1,9 +1,11 @@
-import React, { Fragment, useEffect, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 import InputTodo from "./components/InputTodo";
 import ListTodo from "./components/ListTodo";
+import Header from "./components/Header";
 function App() {
   const [todos, setTodos] = useState([]);
   const [description, setDescription] = useState("");
+  const focusMain=useRef(null);
   const onchangeHandler = (e) => setDescription(e.target.value);
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -18,6 +20,7 @@ function App() {
       });
       setDescription("");
       getTodos();
+      focusMain.current.focus();
     } catch (err) {
       console.error(err.message);
     }
@@ -37,10 +40,12 @@ function App() {
   }, []);
   return (
     <Fragment>
+      <Header/>
       <InputTodo
         submitHandler={submitHandler}
         description={description}
         onchangeHandler={onchangeHandler}
+        focusMain={focusMain}
       />
       <ListTodo
         todos={todos}

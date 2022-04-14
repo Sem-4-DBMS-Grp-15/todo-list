@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styles from "./Card.module.css";
 
 const Card = ({ a, getTodos, setTodos }) => {
@@ -6,6 +6,7 @@ const Card = ({ a, getTodos, setTodos }) => {
   const [editButtonText, setEditButtonText] = useState("Edit");
   const [deleteButtonText, setDeleteButtonText] = useState("Delete");
   const [isEdit, setIsEdit] = useState(false);
+  const focusText = useRef(null);
   const editToggler = (e) => {
     setIsEdit(!isEdit);
     if (!isEdit) {
@@ -18,9 +19,8 @@ const Card = ({ a, getTodos, setTodos }) => {
     editHandler(e);
   };
 
-
   const deleteHandler = async (e) => {
-    if(!isEdit){
+    if (!isEdit) {
       try {
         const id = e.target.parentNode.id;
         await fetch(`http://localhost:5000/todos/${id}`, {
@@ -30,8 +30,7 @@ const Card = ({ a, getTodos, setTodos }) => {
       } catch (err) {
         console.error(err.message);
       }
-    }
-    else{
+    } else {
       setDescription(a.description);
     }
     setIsEdit(!isEdit);
@@ -59,14 +58,21 @@ const Card = ({ a, getTodos, setTodos }) => {
       return;
     }
   };
+  useEffect(() => {
+    focusText.current.focus();
+    console.log(focusText);
+  }, [isEdit]);
+
   return (
-    <div className={styles.card} id={a.id} key={a.id}>
+    <div className={styles.card} id={a.id} key={a.id} draggable={true}>
       <input
+        autoFocus={true}
         type="text"
         placeholder={a.description}
         className={isEdit ? `${styles.text} ${styles.edit}` : styles.text}
         value={description}
         onChange={(e) => setDescription(e.target.value)}
+        ref={focusText}
       />
       <div
         className={

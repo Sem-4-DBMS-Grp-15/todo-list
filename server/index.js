@@ -18,7 +18,7 @@ app.get("/", async (req, res) => {
 //Get all todos
 app.get("/todos", async (req, res) => {
   try {
-    const allTodo = await pool.query("SELECT * FROM todo");
+    const allTodo = await pool.query("SELECT * FROM todo ORDER BY id ASC");
     res.json(allTodo.rows);
   } catch (err) {
     console.error(err.message);

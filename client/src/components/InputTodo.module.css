@@ -1,5 +1,6 @@
 .cardform {
-  padding: 2rem 1rem 0;
+  padding: 2rem 1rem 0rem;
+  margin-top: 4rem;
 }
 
 .input {
@@ -22,8 +23,9 @@
 }
 
 .inputfield {
+  cursor: pointer;
   border: 0;
-  z-index: 1;
+  z-index: -1;
   background-color: transparent;
   border-bottom: 2px solid #eee;
   font: inherit;
@@ -34,7 +36,7 @@
 }
 
 .inputfield::placeholder {
-  color: rgba(0, 0, 0, 0.2);
+  color: rgba(0, 0, 0, 0.3);
 }
 
 .actionbutton {

@@ -1,0 +1,24 @@
+.navbar {
+  overflow: hidden;
+  background-color: #6658d3e7;
+  position: fixed; /* Set the navbar to fixed position */
+  top: 0; /* Position the navbar at the top of the page */
+  left: 0;
+  max-width: 100%; /* Full width */
+  min-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.5rem;
+  z-index: 1;
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(10px);
+  filter: drop-shadow(0 0px 4px black);
+}
+
+.navtitle {
+    color: white;
+  padding: 0.5rem;
+  align-self: center;
+  font-weight: bold;
+  font-size: xx-large;
+}
