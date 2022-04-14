@@ -9,6 +9,10 @@ function App() {
   const onchangeHandler = (e) => setDescription(e.target.value);
   const submitHandler = async (e) => {
     e.preventDefault();
+    if(description.length<=0){
+      alert("Please enter a valid description");
+      return;
+    }
     try {
       const data = { description };
       await fetch("http://localhost:5000/todos", {

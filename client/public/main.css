@@ -9,6 +9,10 @@
   scrollbar-color: transparent transparent;
 }
 
+:root{
+  overflow-y: scroll;
+}
+
 body {
   background: white;
   color: black;
