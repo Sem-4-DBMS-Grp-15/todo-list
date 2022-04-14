@@ -16,7 +16,7 @@ const InputTodo = ({
             <input
               autoFocus={true}
               type="text"
-              placeholder="Should do your mom tonight..."
+              placeholder="What's next on our list?"
               className={styles.inputfield}
               value={description}
               onChange={onchangeHandler}
