@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+const bcrypt = require("bcrypt");
 //For accessing req body
 app.use(express.json());
 
@@ -15,6 +16,44 @@ app.use(cors());
 app.get("/", async (req, res) => {
   res.send("<h1>Sup Bitches, tis the API homepage</h1>");
 });
+
+//Get all users
+app.get("/users", async (req, res) => {
+  try {
+    const users = await pool.query("SELECT * FROM users");
+    res.json(users.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//Get a single user
+app.get("/users/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const user = await pool.query("SELECT * FROM users WHERE id = $1", [id]);
+    res.json(user.rows);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
+//Create a user
+app.post("/users", async (req, res) => {
+  try {
+    console.log(request.body);
+    const { name, password } = req.body;
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await pool.query(
+      "INSERT INTO users (uname, pword) VALUES ($1, $2) RETURNING *",
+      [name, hashedPassword]
+    );
+    res.json(newUser.rows[0]);
+  } catch (err) {
+    console.error(err.message);
+  }
+});
+
 //Get all todos
 app.get("/todos", async (req, res) => {
   try {
