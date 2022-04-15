@@ -1,16 +1,16 @@
 import React, { Fragment } from 'react';
 import styles from "./Header.module.css";
 
-const Header = () => {
+const Header = ({title}) => {
   return (
     <Fragment>
       <nav className={styles.navbar} id="navbar">
         <div className={styles.navtitle}>
           <div id="nav-title">
-            Todoist
+            {title}
           </div>
         </div>
-        <div class="logo"></div>
+        <div className="logo"></div>
       </nav>
     </Fragment>
   );

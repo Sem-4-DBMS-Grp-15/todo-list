@@ -60,7 +60,6 @@ const Card = ({ a, getTodos, setTodos }) => {
   };
   useEffect(() => {
     focusText.current.focus();
-    console.log(focusText);
   }, [isEdit]);
 
   return (
