@@ -18,7 +18,7 @@ const RootMain = () => {
       <Routes>
         <Route
           path="*"
-          element={<App token={token} updateToken={updateToken} />}
+          element={<App token={token} updateToken={updateToken}/>}
         />
         <Route
           exact path="signup"
@@ -27,6 +27,10 @@ const RootMain = () => {
         <Route
           exact path="login"
           element={<Login token={token} updateToken={updateToken} />}
+        />
+        <Route
+        exact path="logout"
+        element={<Login token={token} updateToken={updateToken} />}
         />
       </Routes>
     </BrowserRouter>

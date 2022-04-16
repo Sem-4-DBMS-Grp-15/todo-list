@@ -1,5 +1,6 @@
 import React, { Fragment } from "react";
 import styles from "./InputTodo.module.css";
+import { HiPlus } from "react-icons/hi";
 
 const InputTodo = ({
   submitHandler,
@@ -23,7 +24,7 @@ const InputTodo = ({
               ref={focusMain}
             />
             <button type="submit" className={styles.actionbutton}>
-              Add
+              <HiPlus/>
             </button>
           </div>
         </form>

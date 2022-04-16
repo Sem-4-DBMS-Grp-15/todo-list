@@ -165,6 +165,7 @@ app.post("/todos", async (req, res) => {
 //Update a todo
 app.put("/todos/:id", async (req, res) => {
   try {
+    console.log("put requested");
     const { id } = req.params;
     const { description } = req.body;
     const updateTodo = await pool.query(
@@ -179,6 +180,7 @@ app.put("/todos/:id", async (req, res) => {
 //Delete a todo
 app.delete("/todos/:id", async (req, res) => {
   try {
+    console.log("delete requested");
     const { id } = req.params;
     const deleteTodo = await pool.query(
       "DELETE FROM todo WHERE id=$1 RETURNING *",

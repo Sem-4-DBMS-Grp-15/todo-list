@@ -3,10 +3,7 @@ import InputTodo from "../components/InputTodo";
 import ListTodo from "../components/ListTodo";
 import Header from "../components/Header";
 import { Navigate } from "react-router-dom";
-function App({ token }) {
-  if (token === "") {
-    <Navigate replace={true} to="/login" />;
-  }
+function App({ token,updateToken }) {
   const [todos, setTodos] = useState([]);
   const [description, setDescription] = useState("");
   const focusMain = useRef(null);
@@ -50,13 +47,15 @@ function App({ token }) {
     }
   };
   useEffect(() => {
-    getTodos();
+    if (token !== "") {
+      getTodos();
+    }
   }, []);
   return token === "" ? (
     <Navigate replace to="/login" />
   ) : (
     <Fragment>
-      <Header title="Todoist" />
+      <Header title="Todoist" context={"logout"} updateToken={updateToken}/>
       <InputTodo
         submitHandler={submitHandler}
         description={description}

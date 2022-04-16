@@ -1,5 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Card.module.css";
+// import {
+//   MdClose,
+//   MdOutlineSave,
+//   MdOutlineEdit,
+//   MdDelete,
+// } from "react-icons/md";
 
 const Card = ({ a, getTodos, setTodos }) => {
   const [description, setDescription] = useState(a.description);
@@ -11,7 +17,7 @@ const Card = ({ a, getTodos, setTodos }) => {
     setIsEdit(!isEdit);
     if (!isEdit) {
       setEditButtonText("Save");
-      setDeleteButtonText("Discard");
+      setDeleteButtonText("Close");
     } else {
       setEditButtonText("Edit");
       setDeleteButtonText("Delete");
@@ -32,10 +38,10 @@ const Card = ({ a, getTodos, setTodos }) => {
       }
     } else {
       setDescription(a.description);
+      setIsEdit(!isEdit);
+      setEditButtonText("Edit");
+      setDeleteButtonText("Delete");
     }
-    setIsEdit(!isEdit);
-    setEditButtonText("Edit");
-    setDeleteButtonText("Delete");
   };
 
   const editHandler = async (e) => {
@@ -55,7 +61,8 @@ const Card = ({ a, getTodos, setTodos }) => {
         console.error(err.message);
       }
     } else {
-      return;
+      setEditButtonText("Save");
+      setDeleteButtonText("Close");
     }
   };
   useEffect(() => {
