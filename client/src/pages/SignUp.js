@@ -11,7 +11,7 @@ const Login = ({ token, updateToken }) => {
     e.preventDefault();
     try {
       const data = { name: uname, password: pword };
-      const Response = await fetch("http://localhost:5000/users/signup", {
+      const Response = await fetch("/users/signup", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

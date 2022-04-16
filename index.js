@@ -3,7 +3,14 @@ const app = express();
 const jwt = require("jsonwebtoken");
 const config = require("./config/auth.config");
 const bcrypt = require("bcrypt");
+const path=require('path');
 const PORT = process.env.PORT || 5000;
+
+//Setting up serving client files from server
+if(process.env.NODE_ENV === "production"){
+    app.use(express.static(path.join(__dirname, 'client/build')));
+}
+
 //For accessing req body
 app.use(express.json());
 
@@ -192,6 +199,11 @@ app.delete("/todos/:id", async (req, res) => {
   }
 });
 
-app.listen(5000, (req, res) => {
+//Catchall method
+app.get("*", (req, res) => {
+  res.redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+});
+
+app.listen(PORT, (req, res) => {
   console.log(`server is running on port ${PORT}`);
 });

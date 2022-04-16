@@ -29,7 +29,7 @@ const Card = ({ a, getTodos, setTodos }) => {
     if (!isEdit) {
       try {
         const id = e.target.parentNode.id;
-        await fetch(`http://localhost:5000/todos/${id}`, {
+        await fetch(`/todos/${id}`, {
           method: "DELETE",
         });
         getTodos();
@@ -49,7 +49,7 @@ const Card = ({ a, getTodos, setTodos }) => {
       try {
         const id = e.target.parentNode.id;
         const data = { description };
-        await fetch(`http://localhost:5000/todos/${id}`, {
+        await fetch(`/todos/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",

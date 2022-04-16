@@ -11,7 +11,7 @@ const Login = ({ token, updateToken }) => {
     e.preventDefault();
     try {
       const data = { name: uname, password: pword };
-      const Response = await fetch("http://localhost:5000/users/login", {
+      const Response = await fetch("/users/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -19,6 +19,7 @@ const Login = ({ token, updateToken }) => {
         body: JSON.stringify(data),
       });
       const result = await Response.json();
+      console.log(result);
       if (result.message) {
         alert(result.message);
       } else {

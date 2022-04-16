@@ -3,7 +3,7 @@ import InputTodo from "../components/InputTodo";
 import ListTodo from "../components/ListTodo";
 import Header from "../components/Header";
 import { Navigate } from "react-router-dom";
-function App({ token,updateToken }) {
+function App({ token, updateToken }) {
   const [todos, setTodos] = useState([]);
   const [description, setDescription] = useState("");
   const focusMain = useRef(null);
@@ -16,7 +16,7 @@ function App({ token,updateToken }) {
     }
     try {
       const data = { description };
-      await fetch("http://localhost:5000/todos", {
+      await fetch("/todos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -34,7 +34,7 @@ function App({ token,updateToken }) {
 
   const getTodos = async () => {
     try {
-      const response = await fetch("http://localhost:5000/todos", {
+      const response = await fetch("/todos", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
@@ -55,7 +55,7 @@ function App({ token,updateToken }) {
     <Navigate replace to="/login" />
   ) : (
     <Fragment>
-      <Header title="Todoist" context={"logout"} updateToken={updateToken}/>
+      <Header title="Todoist" context={"logout"} updateToken={updateToken} />
       <InputTodo
         submitHandler={submitHandler}
         description={description}
