@@ -1,26 +1,26 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Card.module.css";
-// import {
-//   MdClose,
-//   MdOutlineSave,
-//   MdOutlineEdit,
-//   MdDelete,
-// } from "react-icons/md";
+import {
+  MdClose,
+  MdOutlineSave,
+  MdOutlineEdit,
+  MdDelete,
+} from "react-icons/md";
 
 const Card = ({ a, getTodos, setTodos }) => {
   const [description, setDescription] = useState(a.description);
-  const [editButtonText, setEditButtonText] = useState("Edit");
-  const [deleteButtonText, setDeleteButtonText] = useState("Delete");
+  const [editButtonText, setEditButtonText] = useState(<MdOutlineEdit/>);
+  const [deleteButtonText, setDeleteButtonText] = useState(<MdDelete/>);
   const [isEdit, setIsEdit] = useState(false);
   const focusText = useRef(null);
   const editToggler = (e) => {
     setIsEdit(!isEdit);
     if (!isEdit) {
-      setEditButtonText("Save");
-      setDeleteButtonText("Close");
+      setEditButtonText(<MdOutlineSave/>);
+      setDeleteButtonText(<MdClose/>);
     } else {
-      setEditButtonText("Edit");
-      setDeleteButtonText("Delete");
+      setEditButtonText(<MdOutlineEdit />);
+      setDeleteButtonText(<MdDelete />);
     }
     editHandler(e);
   };
@@ -39,8 +39,8 @@ const Card = ({ a, getTodos, setTodos }) => {
     } else {
       setDescription(a.description);
       setIsEdit(!isEdit);
-      setEditButtonText("Edit");
-      setDeleteButtonText("Delete");
+      setEditButtonText(<MdOutlineEdit/>);
+      setDeleteButtonText(<MdDelete/>);
     }
   };
 
@@ -61,8 +61,8 @@ const Card = ({ a, getTodos, setTodos }) => {
         console.error(err.message);
       }
     } else {
-      setEditButtonText("Save");
-      setDeleteButtonText("Close");
+      setEditButtonText(<MdOutlineSave/>);
+      setDeleteButtonText(<MdClose/>);
     }
   };
   useEffect(() => {
