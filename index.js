@@ -201,7 +201,8 @@ app.delete("/todos/:id", async (req, res) => {
 
 //Catchall method
 app.get("*", (req, res) => {
-  res.redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+  // res.redirect("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+  res.sendFile(path.join(__dirname, "client/build/index.html"));
 });
 
 app.listen(PORT, (req, res) => {
