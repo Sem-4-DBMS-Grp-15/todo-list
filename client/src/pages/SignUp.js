@@ -67,10 +67,10 @@ const Login = ({ token, updateToken }) => {
               required
             />
             <div className="clearfix">
-              <button type="button" className="cancelbtn">
+              <button type="button" className={styles.actionbutton}>
                 Cancel
               </button>
-              <button type="submit" className="signupbtn">
+              <button type="submit" className={styles.actionbutton}>
                 Signup
               </button>
             </div>
