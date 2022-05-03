@@ -2,6 +2,7 @@
     width: 50%;
   background-color: antiquewhite;
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   text-align: center;
@@ -20,12 +21,13 @@
 .inputlabel {
   align-self: center;
   background-color: #6658d3;
-  width: fit-content;
   color: white;
   top: 1.5rem;
   transition: 0.25s ease;
   font-size: 2rem;
   font-weight: 600;
+  width: 25%;
+  min-width: fit-content;
 }
 
 .inputfield {
@@ -57,9 +59,12 @@
   color: #fff;
   border: 0;
   cursor: pointer;
+  min-width: fit-content;
 }
 
 .wrapper{
+    display: flex;
+    flex-direction: row;
     width:100%
 }
 
