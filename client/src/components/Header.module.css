@@ -22,3 +22,19 @@
   font-weight: bold;
   font-size: xx-large;
 }
+
+a{
+  color: white;
+  text-decoration: none;
+  padding-right: 1rem;
+}
+
+a:visited{
+  text-decoration: none;
+}
+
+.options{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

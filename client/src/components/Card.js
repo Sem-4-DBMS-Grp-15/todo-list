@@ -1,5 +1,11 @@
 import React, { useEffect, useRef, useState } from "react";
 import styles from "./Card.module.css";
+// import {
+//   MdClose,
+//   MdOutlineSave,
+//   MdOutlineEdit,
+//   MdDelete,
+// } from "react-icons/md";
 
 const Card = ({ a, getTodos, setTodos }) => {
   const [description, setDescription] = useState(a.description);
@@ -11,7 +17,7 @@ const Card = ({ a, getTodos, setTodos }) => {
     setIsEdit(!isEdit);
     if (!isEdit) {
       setEditButtonText("Save");
-      setDeleteButtonText("Discard");
+      setDeleteButtonText("Close");
     } else {
       setEditButtonText("Edit");
       setDeleteButtonText("Delete");
@@ -23,7 +29,7 @@ const Card = ({ a, getTodos, setTodos }) => {
     if (!isEdit) {
       try {
         const id = e.target.parentNode.id;
-        await fetch(`http://localhost:5000/todos/${id}`, {
+        await fetch(`/todos/${id}`, {
           method: "DELETE",
         });
         getTodos();
@@ -32,10 +38,10 @@ const Card = ({ a, getTodos, setTodos }) => {
       }
     } else {
       setDescription(a.description);
+      setIsEdit(!isEdit);
+      setEditButtonText("Edit");
+      setDeleteButtonText("Delete");
     }
-    setIsEdit(!isEdit);
-    setEditButtonText("Edit");
-    setDeleteButtonText("Delete");
   };
 
   const editHandler = async (e) => {
@@ -43,7 +49,7 @@ const Card = ({ a, getTodos, setTodos }) => {
       try {
         const id = e.target.parentNode.id;
         const data = { description };
-        await fetch(`http://localhost:5000/todos/${id}`, {
+        await fetch(`/todos/${id}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -55,12 +61,12 @@ const Card = ({ a, getTodos, setTodos }) => {
         console.error(err.message);
       }
     } else {
-      return;
+      setEditButtonText("Save");
+      setDeleteButtonText("Close");
     }
   };
   useEffect(() => {
     focusText.current.focus();
-    console.log(focusText);
   }, [isEdit]);
 
   return (
