@@ -35,7 +35,7 @@ const Login = ({ token, updateToken }) => {
     <Navigate to="/" />
   ) : (
     <Fragment>
-      <Header title="Login" context="login" updateToken={updateToken} />
+      <Header title="Signup" context="login" updateToken={updateToken} />
       <div className={styles.cardform}>
         <form className={styles.input} onSubmit={submitHandler}>
           <div className="container">
